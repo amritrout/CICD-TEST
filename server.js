@@ -9,6 +9,13 @@ const server = http.createServer((req, res) => {
     res.end('Hello, World! its me mariooo\n');
 });
 
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+const startServer = () => {
+    return server.listen(port, hostname, () => {
+        console.log(`Server running at http://${hostname}:${port}/`);
+    }).on('error', (err) => {
+        console.error('Server encountered an error:', err);
+    });
+};
+
+startServer();
+module.exports = { startServer, server };
