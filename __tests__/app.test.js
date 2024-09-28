@@ -30,7 +30,7 @@ describe('HTTP Server', function() {
                 expect(data).toBe('Hello, World! its me mariooo\n');
                 done();
             });
-        }).on('error', (err) => {
+        }).on('error', function(err) {
             console.error('Request failed:', err);
             done(err);
         });
